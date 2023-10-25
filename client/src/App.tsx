@@ -13,19 +13,19 @@ function App() {
       id: 1,
       title: "First Note",
       content:
-        "First Content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, dolore?Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, dolore?",
+        "First Content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, dolore? Lorem ipsum dolor sit amet.",
     },
     {
       id: 2,
       title: "Second Note",
       content:
-        "Second Content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, dolore?Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, dolore?",
+        "Second Content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, dolore? Lorem ipsum dolor sit amet.",
     },
     {
       id: 3,
       title: "Third Note",
       content:
-        "Third Content.Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, dolore?Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, dolore?",
+        "Third Content. Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, dolore? Lorem ipsum dolor sit amet consectetur adipisicing elit. Similique, dolore? Lorem ipsum dolor sit amet.",
     },
   ]);
 
