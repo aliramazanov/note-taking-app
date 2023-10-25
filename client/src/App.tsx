@@ -31,6 +31,7 @@ function App() {
 
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
+  const [selectedNote, setSelectedNote] = useState<Note | null>(null);
 
   const handleSubmit = (event: React.FormEvent) => {
     event.preventDefault();
@@ -44,14 +45,49 @@ function App() {
     setContent("");
   };
 
+  const handleNoteClick = (note: Note) => {
+    setSelectedNote(note);
+    setTitle(note.title);
+    setContent(note.content);
+  };
+
+  const handleNoteUpdate = (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!selectedNote) {
+      return;
+    }
+
+    const updatedNote: Note = {
+      id: selectedNote.id,
+      title: title,
+      content: content,
+    };
+
+    const updatedNoteList = notes.map((note) =>
+      note.id === selectedNote.id ? updatedNote : note
+    );
+
+    setNotes(updatedNoteList);
+    setTitle("");
+    setContent("");
+    setSelectedNote(null);
+  };
+
+  const handleCancelEdit = () => {
+    setTitle("");
+    setContent("");
+    setSelectedNote(null);
+  };
+
   return (
     <div className="app-container">
       <section>
         <div className="form-container">
           <form
-            action=""
             className="note-form"
-            onSubmit={(event) => handleSubmit(event)}
+            onSubmit={(event) =>
+              selectedNote ? handleNoteUpdate(event) : handleSubmit(event)
+            }
           >
             <input
               type="text"
@@ -77,7 +113,16 @@ function App() {
                 setContent(event.target.value);
               }}
             ></textarea>
-            <button type="submit">Add Note</button>
+            {selectedNote ? (
+              <div className="edit-buttons">
+                <button type="submit">Save</button>
+                <button onClick={handleCancelEdit} type="button">
+                  Cancel
+                </button>
+              </div>
+            ) : (
+              <button type="submit">Add Note</button>
+            )}
           </form>
         </div>
       </section>
@@ -85,7 +130,7 @@ function App() {
       <section>
         <div className="notes-grid">
           {notes.map((note) => (
-            <div className="note-item">
+            <div className="note-item" onClick={() => handleNoteClick(note)}>
               <div className="notes-header">
                 <button type="submit" className="note-delete">
                   x
