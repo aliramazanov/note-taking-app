@@ -7,11 +7,8 @@ dotenv.config();
 app.use(express.json());
 app.use(cors());
 
-const PORT: number | string = process.env.PORT || 9595;
-app.get("/api/notes", async (_req, res) => {
-  res.json({ message: "GET Request successfull!" });
-});
+const port = process.env.port;
 
-app.listen(PORT, () => {
-  console.log(`Server is up & running! On http://localhost:${PORT}`);
+app.listen(port, () => {
+  console.log(`Server is up & running! On http://localhost:${port}`);
 });
