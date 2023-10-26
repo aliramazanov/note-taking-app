@@ -14,6 +14,23 @@ app.get("/api/notes", async (req, res) => {
   res.json(notes);
 });
 
+app.post("/api/notes", async (req, res) => {
+  const { title, content } = req.body;
+
+  if (!title || !content) {
+    return res.status(400).send("Title & Content fields are required!");
+  }
+
+  try {
+    const note = await prisma.note.create({
+      data: { title, content },
+    });
+    res.json(note);
+  } catch (error) {
+    res.send(500).send("Unexpected Error!");
+  }
+});
+
 const port = process.env.port;
 
 app.listen(port, () => {
