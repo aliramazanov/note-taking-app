@@ -8,7 +8,7 @@ Don't forget to run the npm install command in both client and server folders. M
 You can set up SQL instance in ElephantSQL just in minutes, and add necessary details to dotenv file.
 
 - Frontend: React, TypeScript
-- Backend: Expres, TypeScrip, Prisma ORM
+- Backend: Express.js, TypeScrip, Prisma ORM
 - Database: PostgreSQL (ElephantSQL)
 
 ## Set up environment variables
