@@ -13,9 +13,10 @@ You can set up SQL instance in ElephantSQL just in minutes, and add necessary de
 
 ## Set up environment variables
 
-- Enviroment variables setup: Create a .env file in the server folder and add the following:
-  DATABASE_URL=your_postgres_database_url
-  port = your_choice_of_four_numbers
+Create a .env file in the server folder and add the following:
+
+- DATABASE_URL = your_postgres_database_url (from ElephantSQL)
+- port = your_choice_of_four_numbers
 
 ## Run the Client and the Server
 
