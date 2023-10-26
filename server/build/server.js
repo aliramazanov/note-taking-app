@@ -9,12 +9,15 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 import express from "express";
 import cors from "cors";
+import dotenv from "dotenv";
 const app = express();
+dotenv.config();
 app.use(express.json());
 app.use(cors());
-app.get("/", (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
-    res.send("Hi there!");
+const PORT = process.env.PORT || 9595;
+app.get("/api/notes", (_req, res) => __awaiter(void 0, void 0, void 0, function* () {
+    res.json({ message: "GET Request successfull!" });
 }));
-app.listen(9595, () => {
-    console.log(`Server is up & running! On http://localhost:9595`);
+app.listen(PORT, () => {
+    console.log(`Server is up & running! On http://localhost:${PORT}`);
 });
