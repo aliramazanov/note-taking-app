@@ -27,7 +27,7 @@ app.post("/api/notes", async (req, res) => {
     });
     res.json(note);
   } catch (error) {
-    res.send(500).send("Unexpected Error!");
+    res.sendStatus(500).send("Unexpected Error!");
   }
 });
 
@@ -36,11 +36,11 @@ app.put("/api/notes/:id", async (req, res) => {
   const id = parseInt(req.params.id);
 
   if (!id || isNaN(id)) {
-    return res.status(400).send("ID must be a number!");
+    return res.sendStatus(400).send("ID must be a number!");
   }
 
   if (!title || !content) {
-    return res.status(400).send("Title & Content fields are required!");
+    return res.sendStatus(400).send("Title & Content fields are required!");
   }
 
   try {
@@ -50,7 +50,7 @@ app.put("/api/notes/:id", async (req, res) => {
     });
     res.json(updatedNote);
   } catch (error) {
-    res.send(500).send("Unexpected Error!");
+    res.sendStatus(500).send("Unexpected Error!");
   }
 });
 
@@ -58,7 +58,7 @@ app.delete("/api/notes/:id", async (req, res) => {
   const id = parseInt(req.params.id);
 
   if (!id || isNaN(id)) {
-    return res.status(400).send("ID must be a number!");
+    return res.sendStatus(400).send("ID must be a number!");
   }
 
   try {
@@ -67,7 +67,7 @@ app.delete("/api/notes/:id", async (req, res) => {
     });
     return res.status(204).send("Deleted!");
   } catch (error) {
-    res.send(500).send("Unexpected Error!");
+    res.sendStatus(500).send("Unexpected Error!");
   }
 });
 
