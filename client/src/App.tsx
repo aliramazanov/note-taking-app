@@ -159,7 +159,7 @@ function App() {
                 </button>
               </div>
             ) : (
-              <button type="submit">Add Note</button>
+              <button type="submit">New Note</button>
             )}
           </form>
         </div>
